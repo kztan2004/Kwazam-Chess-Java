@@ -1,0 +1,21 @@
+false
+TOR 0 false
+BIZ 1 false
+SAU 2 false
+BIZ 3 false
+XOR 4 false
+RAM 5 false
+RAM 6 false
+RAM 7 false
+RAM 8 false
+RAM 9 false
+RAM 27 true
+RAM 30 true
+RAM 31 true
+RAM 33 true
+RAM 34 true
+TOR 35 true
+BIZ 36 true
+SAU 37 true
+BIZ 38 true
+XOR 39 true
