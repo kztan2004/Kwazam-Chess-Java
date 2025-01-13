@@ -23,6 +23,17 @@ public class File{
             
         }
     }
+
+    //Clear the save file
+    public void clearFile(){
+         try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
+            writer.write("");
+            writer.close();
+        }catch(Exception e){
+            
+        }
+    }
     
     //Checks if a saved game file exists
     public static boolean getLoadStatus(){
