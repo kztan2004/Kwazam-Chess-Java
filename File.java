@@ -5,8 +5,10 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class File{
+    // Constructor for the File class
     public File(){}
     
+    //Saves the current game state to a file
     public void saveFile(Piece[] pieces, boolean turnBlue){
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
@@ -22,6 +24,7 @@ public class File{
         }
     }
     
+    //Checks if a saved game file exists
     public static boolean getLoadStatus(){
         boolean result = false;
         try{
@@ -35,15 +38,16 @@ public class File{
         return result;
     }
     
+    //Loads game state from the saved file
     public boolean loadFile(Piece[] pieces){
         boolean turnBlue = true;
         try{
             BufferedReader reader = new BufferedReader(new FileReader("output.txt"));
             String lines;
             String turnBlueRead = reader.readLine();
-            turnBlue = turnBlueRead.equals("true");
+            turnBlue = turnBlueRead.equals("true"); // Parse the turn information
             while((lines = reader.readLine())!= null){
-                String[] line = lines.split(" ");
+                String[] line = lines.split(" "); // Split the line into components
                 switch(line[0]){
                     case "RAM":
                         pieces[Integer.parseInt(line[1])] = new RAM(Integer.parseInt(line[1]), line[2].equals("true"));

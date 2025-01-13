@@ -3,66 +3,93 @@ import javax.swing.*;
 import java.awt.*;
 import java.lang.*;
 
-public class Piece {
-    private int pos;
-    private boolean isBlue;
-    private ImageIcon icon;
-    private String pieceType;
-    private ArrayList<Integer> valid = new ArrayList<Integer>();
-    
-    public Piece(int pos, boolean isBlue){
+public abstract class Piece {
+    private int pos; // The position of the piece
+    private boolean isBlue; // The color of the piece
+    private ImageIcon icon; // The icon of the piece
+    private String pieceType; // The type of the piece
+    private ArrayList<Integer> valid = new ArrayList<Integer>(); // List of valid positions
+
+    // Constructor
+    public Piece(int pos, boolean isBlue) {
         this.pos = pos;
         this.isBlue = isBlue;
     }
-    
-    public void setIcon(String path){
+
+    // Sets the icon of the piece
+    public void setIcon(String path) {
         this.icon = addIcon(path);
     }
-    
-    public void setPos(int num){
+
+    // Sets the position of the piece
+    public void setPos(int num) {
         this.pos = num;
     }
-    
-    public void setType(String type){pieceType = type;}
-    
-    public int getPos() {return pos;}
-    
-    public boolean getBlue() {return isBlue;}
-    
-    public String getType(){return pieceType;}
-    
-    public ImageIcon getIcon() {return icon;}
-    
-    public ArrayList<Integer> getValid(){return valid;}
-    
-    public void updateValid(Piece[] p) {};
-    
-    public boolean checkValid(int num){
-        for(int i : valid){
-            if(i == num) return true;
+
+    // Sets the type of the piece
+    public void setType(String type) {
+        pieceType = type;
+    }
+
+    // Gets the position of the piece
+    public int getPos() {
+        return pos;
+    }
+
+    // Gets the color of the piece
+    public boolean getBlue() {
+        return isBlue;
+    }
+
+    // Gets the type of the piece
+    public String getType() {
+        return pieceType;
+    }
+
+    // Gets the icon of the piece
+    public ImageIcon getIcon() {
+        return icon;
+    }
+
+    // Gets the valid positions of the piece
+    public ArrayList<Integer> getValid() {
+        return valid;
+    }
+
+    // Update valid positions of the piece
+    public abstract void updateValid(Piece[] p);
+
+    // Checks valid positions
+    public boolean checkValid(int num) {
+        for (int i : valid) {
+            if (i == num) return true;
         }
         return false;
     }
-    
-    public boolean checkEnemy(Piece p){
+
+    // Checks Enemy Piece
+    public boolean checkEnemy(Piece p) {
         return p.getBlue() == !isBlue;
     }
-    
-    public int posToNum(int[] pos){
+
+    // Converts a 2D array coordinates to single integer position
+    public int posToNum(int[] pos) {
         return (pos[0] * 5 + pos[1]);
     }
-    
-    public int[] numToPos(int num){
+
+    // Converts a single integer position to 2D array coordinates
+    public int[] numToPos(int num) {
         int[] pos = new int[2];
-        pos[0] = num/5;
-        pos[1] = num%5;
+        pos[0] = num / 5;
+        pos[1] = num % 5;
         return pos;
     }
-    
-    public static ImageIcon addIcon(String path){
+
+    // Resize image to icon
+    public static ImageIcon addIcon(String path) {
         ImageIcon imageIcon = new ImageIcon(path);
         Image image = imageIcon.getImage();
-        Image newimg = image.getScaledInstance(62, 62,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        Image newimg = image.getScaledInstance(62, 62, java.awt.Image.SCALE_SMOOTH); // Scale the image smoothly
         return new ImageIcon(newimg);
     }
 }
