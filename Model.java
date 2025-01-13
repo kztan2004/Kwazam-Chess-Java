@@ -20,6 +20,7 @@ public class Model {
             turnBlue = file.loadFile(pieces);
         }else{
             turnBlue = true;
+            file.clearFile();
             pieces = newPieces();
         }
     }
