@@ -1,8 +1,8 @@
 # **Kwazam Chess**
 ## **Preview**
-![image](https://github.com/user-attachments/assets/4b998e00-84d0-40cb-8781-b77c7b057e79)
-![image](https://github.com/user-attachments/assets/46f1cf84-eb07-4f8c-ab9d-9d4469246e9e)
-![image](https://github.com/user-attachments/assets/19811814-8b76-4b4d-b4f9-e5b4e07c617d)
+![image](https://github.com/user-attachments/assets/0ff08e46-7b3e-4e25-a94f-2f5d14859ddd)
+![image](https://github.com/user-attachments/assets/babcb8b7-c449-4d25-bd91-3e3266bad43d)
+![image](https://github.com/user-attachments/assets/1b1a9f53-dcb6-4021-889c-8379e4d0acc8)
 <br>
 ---
 
